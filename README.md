@@ -137,14 +137,14 @@ Note that you will need 4 x P40 GPUs (24 GB) for the specified batch size.
 1. Train on SQuAD v1.1: this will train the model on vanilla `train-v1.1.json` without negative examples
 at `$SAVE1_DIR` of your choice. This will take approximately 16 hours (~5 hours per epoch, 3 epochs).
 ```
-python run_piqa.py --train_batch_size 12 --do_train --freeze_word_emb --save_dir $SAVE1_DIR
+python run_piqa.py --train_batch_size 12 --do_train --save_dir $SAVE1_DIR
 ```
 
 2. Train with negative samples: this will finetune the model once more with negative examples sampled 
 from other documents so that the model can better behave in open-domain environment.
 This also takes approximately 16 hours with 3 epochs.
 ```
-python run_piqa.py --train_batch_size  9 --do_embed_question --do_train_neg --freeze_word_emb --load_dir $SAVE1_DIR --iteration 3 --save_dir $SAVE2_DIR
+python run_piqa.py --train_batch_size  9 --do_embed_question --do_train_neg --load_dir $SAVE1_DIR --iteration 3 --save_dir $SAVE2_DIR
 
 ``` 
 
